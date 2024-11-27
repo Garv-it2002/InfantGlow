@@ -44,9 +44,3 @@ python app.py
 
 ## Contributing
 We welcome contributions to enhance the functionality of InfantGlow. If you are interested in helping improve this project, feel free to open issues or pull requests.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-This version emphasizes the societal impact of the project, specifically addressing the challenges faced by women in societies where healthcare access is restricted or stigmatized, and highlights how the project can empower them to make informed health decisions.
