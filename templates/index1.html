@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>InfantGlow</title>
+  <meta content="InfantGlow" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <link href="static/style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="#">InfantGlow</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#testimonials">Team</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Get Personalized</span> Help</a>
+
+    </div>
+  </header><!-- End Header -->
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Child Health Status Prediction</h2>
+          <ol>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li>Child Health Status Prediction</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+    <section class="inner-page">
+        <div class="container">
+          <h2>Child Health Status Prediction</h2>
+                <p>
+                  This pioneering project leverages weight-to-age data to predict and communicate the health status of infant children. By analyzing these metrics in relation to their age and diet, the project offers valuable insights for parents and caregivers. Furthermore, the inclusion of a helpline for doctors ensures expert guidance in interpreting and acting upon the results. This comprehensive approach not only enhances parental awareness but also equips healthcare professionals with targeted strategies for effective intervention and recovery, promising improved health outcomes for these young ones.
+                  </p><br>
+              <section class="containerf">
+    <header>Child Health Status Prediction</header>
+    <form method="POST" action="/app2" id="prediction-form" class="form">
+        <div class="input-box">
+            <label for="age_months"><h4>Age in Months:</h4></label>
+            <input input type="number" id="age_months" name="age_months" required min="5" max="36" placeholder="Enter the Infant Age Here !" />
+            <span class="error"><strong>Age must be between 5 and 36 months.</strong></span><br><br>
+          </div>
+          <div class="input-box">
+            <label for="weight_kg"><h4>Weight in Kilograms:</h4></label>
+            <input input type="number" id="weight_kg" name="weight_kg" required min="0.5" step="0.01" placeholder="Enter the Infant weight Here !" />
+          </div>
+          <button type="submit" class="predictbutton">Predict</button>
+    </form>
+        <p><h2>Input Age: {{ input_age }}<span id="input_age"></span></h2></p>
+        <p><h2>Weight: {{ input_weight }}<span id="input_weight"></span></h2></p>
+        <p><h2>{% if prediction is not none %}
+            Prediction: {% if prediction == 1 %}Healthy{% else %}Unhealthy{% endif %}
+        {% endif %}<span id="prediction"></span></h2></p>
+
+    </section>
+      
+    <div class="icon-box">
+    <a href="{{ url_for('index') }}">
+      <button class="cssbuttons-io">
+        <span><i class="bx bx-home"></i> Return to Main Page</span>
+      </button>
+    </a>              
+    </div>
+
+</div>
+</section>
+
+</main><!-- End #main -->
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('index') }}">Birth & BMI Prediction</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('app2.app2_index') }}">Child Health Status Prediction</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-cr">
+            <h1 class="logo me-auto"><a href="#">InfantGlow</a></h1>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="container d-md-flex py-4">
+
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright 2023 <strong><span>InfantGlow</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="https://www.coderguru.in/"><strong>Coderguru</strong></a>
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+    </footer><!-- End Footer -->
+  
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Vendor JS Files -->
+<script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="static/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="static/js/main.js"></script>  
+</body>
+</html>
